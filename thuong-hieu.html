@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thương Hiệu & Giải Thưởng — Trần Tuấn Đạt | Portfolio</title>
+    <meta name="description" content="100+ nhãn hàng hợp tác, Quán quân VTV3, Ngôi Sao Xanh 2021 và nhiều danh hiệu nổi bật." />
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="assets/css/template-style.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <style>
+        :root { --red: #9b1316; --dark: #101010; }
+
+        .page-hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(160deg, #101010 60%, #1a0204 100%);
+        }
+        .page-hero-label { font-size:0.75rem;letter-spacing:0.3em;color:var(--red);text-transform:uppercase;margin-bottom:1rem; }
+        .page-hero-title { font-family:'Phudu',sans-serif;font-size:clamp(2.5rem,6vw,5.5rem);font-weight:900;color:#fff;line-height:0.9;margin-bottom:1.5rem; }
+
+        /* ── Awards ── */
+        .awards-section { padding: 80px 0; }
+        .award-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 12px; padding: 28px;
+            display: flex; gap: 20px; align-items: flex-start;
+            transition: all 0.3s; margin-bottom: 16px;
+        }
+        .award-card:hover { border-color: rgba(155,19,22,0.35); background: rgba(155,19,22,0.06); }
+        .award-card.highlight {
+            border-color: rgba(155,19,22,0.4);
+            background: linear-gradient(135deg, rgba(155,19,22,0.12) 0%, rgba(155,19,22,0.03) 100%);
+        }
+        .award-icon {
+            width: 48px; height: 48px; border-radius: 10px;
+            background: rgba(155,19,22,0.2);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem; flex-shrink: 0;
+        }
+        .award-title { font-weight: 700; color: #fff; font-size: 1rem; margin-bottom: 4px; }
+        .award-desc { color: rgba(255,255,255,0.45); font-size: 0.85rem; margin: 0; }
+        .award-year {
+            margin-left: auto; color: var(--red); font-family: 'Phudu', sans-serif;
+            font-size: 1rem; font-weight: 700; flex-shrink: 0; padding-left: 16px;
+        }
+
+        /* ── Brand logo carousel ── */
+        .brands-section { padding: 80px 0; background: rgba(255,255,255,0.02); overflow: hidden; }
+        .brand-logo-track { padding: 10px 0; }
+        .brand-logo-slide {
+            width: auto !important;
+            display: flex; flex-direction: column; align-items: center; gap: 10px;
+            padding: 0 12px;
+        }
+        .brand-logo-card {
+            width: 130px; height: 72px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            padding: 10px 14px;
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+        .brand-logo-card:hover {
+            background: rgba(255,255,255,0.10);
+            border-color: rgba(155,19,22,0.3);
+            transform: translateY(-2px);
+        }
+        .brand-logo-card img {
+            max-width: 100%; max-height: 44px;
+            object-fit: contain;
+            filter: grayscale(1) brightness(1.8);
+            transition: filter 0.3s;
+        }
+        .brand-logo-card:hover img { filter: grayscale(0) brightness(1); }
+        .brand-logo-card .brand-fallback {
+            font-size: 0.8rem; font-weight: 600;
+            color: rgba(255,255,255,0.6); text-align: center; line-height: 1.3;
+        }
+        .brand-logo-name {
+            font-size: 0.72rem; color: rgba(255,255,255,0.35);
+            text-align: center; width: 130px;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+
+        /* ── Academic ── */
+        .academic-section { padding: 80px 0; }
+        .academic-item {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex; align-items: flex-start; gap: 16px;
+        }
+        .academic-item:last-child { border-bottom: none; }
+        .academic-bullet {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--red); flex-shrink: 0; margin-top: 8px;
+        }
+        .academic-text { color: rgba(255,255,255,0.65); font-size: 0.9rem; line-height: 1.6; }
+
+        /* ── CTA ── */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(160deg, rgba(155,19,22,0.15) 0%, #101010 60%);
+            text-align: center;
+        }
+        .cta-title {
+            font-family: 'Phudu', sans-serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 900; color: #fff; margin-bottom: 20px; line-height: 1.1;
+        }
+        .cta-title span { color: var(--red); }
+        .cta-subtitle { color: rgba(255,255,255,0.5); font-size: 1rem; margin-bottom: 40px; }
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .cta-btn-primary {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--red); color: #fff;
+            padding: 16px 40px; border-radius: 4px;
+            font-weight: 700; font-size: 0.95rem; text-decoration: none;
+            letter-spacing: 0.05em; transition: all 0.3s;
+        }
+        .cta-btn-primary:hover { background: #c0191d; color: #fff; transform: translateY(-2px); }
+        .cta-btn-secondary {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.8);
+            padding: 16px 40px; border-radius: 4px;
+            font-weight: 600; font-size: 0.95rem; text-decoration: none;
+            transition: all 0.3s;
+        }
+        .cta-btn-secondary:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+        .contact-info {
+            display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;
+            margin-top: 40px; padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        .contact-info a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .contact-info a:hover { color: var(--red); }
+        /* Social icons — nền đỏ luôn, logo trắng rõ */
+        .social-media--link, a.social-media--link {
+            background: #9b1316 !important;
+            color: #fff !important;
+            border-color: rgba(155,19,22,0.6) !important;
+        }
+        .social-media--link svg, .social-media--link path { fill: #fff !important; }
+        .social-media--link:hover { background: #c0191d !important; border-color: #c0191d !important; }
+    </style>
+</head>
+<body class="wp-theme-vmas" data-aos-easing="ease-out-back" data-aos-delay="0">
+
+<div id="loading" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#101010;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;">
+    <div style="font-family:'Phudu',sans-serif;font-size:2rem;font-weight:900;color:#fff;letter-spacing:0.15em;">THẦY BEO U40</div>
+    <div style="width:120px;height:2px;background:rgba(255,255,255,0.15);border-radius:2px;overflow:hidden;"><div style="height:100%;width:0%;background:#9b1316;animation:lb 1.8s ease forwards;"></div></div>
+</div>
+<style>@keyframes lb{to{width:100%}}</style>
+
+<div id="homepage">
+
+<!-- NAV -->
+<header class="navbar-area position-relative">
+<div class="nav-container lh-2">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between pt-lg-2 pb-lg-2 pt-0 pb-0">
+            <a class="main-logo me-lg-5 flex-shrink-0" href="index.html">
+                <img src="assets/images/logo.png" alt="VMAS" style="height:30px;object-fit:contain;">
+            </a>
+            <div class="nav-right-part nav-right-part-desktop d-inline-flex align-item-center ps-md-5 ps-3">
+                <nav class="navbar-nav m-auto d-lg-inline-block d-none">
+                    <ul id="main-menu" class="main-menu d-flex">
+                        <li class="menu-item"><a href="index.html">Trang chủ</a></li>
+                        <li class="menu-item"><a href="ve-toi.html">Về tôi</a></li>
+                        <li class="menu-item"><a href="he-sinh-thai.html">Hệ sinh thái số</a></li>
+                        <li class="menu-item current-menu-item"><a href="thuong-hieu.html" aria-current="page">Thương hiệu & Giải thưởng</a></li>
+                    </ul>
+                </nav>
+                <button id="navigation-button" class="menu-button menu menu-btn border-0 bg-transparent">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15" fill="none"><path d="M0 0H16V1.77778H0V0ZM0 6.22222H10.6667V8H0V6.22222ZM0 12.4444H16V14.2222H0V12.4444Z" fill="#fff"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="sidebar-menu" class="popup_mobile_menu">
+    <div class="menu">
+        <div class="menu__top">
+            <div class="menu_header d-flex align-items-center justify-content-between">
+                <div class="logo"><a href="index.html"><img src="assets/images/logo.png" alt="VMAS" style="height:28px;object-fit:contain;"></a></div>
+                <div class="close_button d-flex align-items-center justify-content-center"><button class="close"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+            </div>
+        </div>
+        <div class="menu__content mobile_menu_nav">
+            <div class="container"><div class="row"><div class="col-12">
+                <ul id="left-menu" class="mt-4">
+                    <li class="menu-item"><a href="index.html">Trang chủ</a></li>
+                    <li class="menu-item"><a href="ve-toi.html">Về tôi</a></li>
+                    <li class="menu-item"><a href="he-sinh-thai.html">Hệ sinh thái số</a></li>
+                    <li class="menu-item current-menu-item"><a href="thuong-hieu.html" aria-current="page">Thương hiệu & Giải thưởng</a></li>
+                </ul>
+            </div></div></div>
+        </div>
+    </div>
+</div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <div class="container">
+        <p class="page-hero-label" data-aos="fade-up">Thành tích & Đối tác</p>
+        <h1 class="page-hero-title" data-aos="fade-up" data-aos-delay="100">
+            THƯƠNG HIỆU<br>& GIẢI THƯỞNG
+        </h1>
+        <p style="color:rgba(255,255,255,0.45);font-size:1rem;" data-aos="fade-up" data-aos-delay="200">100+ nhãn hàng tin tưởng · Danh hiệu quốc gia · Chứng minh bằng kết quả</p>
+    </div>
+</section>
+
+<!-- GIẢI THƯỞNG -->
+<section class="awards-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col">
+                <p style="font-size:0.75rem;letter-spacing:0.3em;color:#9b1316;text-transform:uppercase;margin-bottom:8px;" data-aos="fade-up">Danh hiệu</p>
+                <h2 style="font-family:'Phudu',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:#fff;" data-aos="fade-up" data-aos-delay="100">Giải thưởng & Thành tích</h2>
+            </div>
+        </div>
+        <div class="row g-0">
+            <div class="col-lg-8" data-aos="fade-up">
+
+                <div class="award-card highlight">
+                    <div class="award-icon">🏆</div>
+                    <div>
+                        <div class="award-title">Quán quân — "Đừng Quên Lời Bài Hát"</div>
+                        <p class="award-desc">Đài Truyền hình Việt Nam VTV3 — Giải Nhất toàn quốc</p>
+                    </div>
+                    <div class="award-year">2012</div>
+                </div>
+
+                <div class="award-card highlight">
+                    <div class="award-icon">⭐</div>
+                    <div>
+                        <div class="award-title">Ngôi Sao Xanh 2021</div>
+                        <p class="award-desc">Hạng mục The Best TikTok Film — Giải thưởng điện ảnh uy tín Việt Nam</p>
+                    </div>
+                    <div class="award-year">2021</div>
+                </div>
+
+                <div class="award-card">
+                    <div class="award-icon">🥇</div>
+                    <div>
+                        <div class="award-title">Giải Nhất — Hội thi giáo viên toàn quốc</div>
+                        <p class="award-desc">Hạng mục Thuyết trình & Tài năng — Bộ Giáo dục & Đào tạo tổ chức</p>
+                    </div>
+                    <div class="award-year">2020</div>
+                </div>
+
+                <div class="award-card">
+                    <div class="award-icon">🎤</div>
+                    <div>
+                        <div class="award-title">Top 4 — Én Vàng 2016</div>
+                        <p class="award-desc">Cuộc thi MC chuyên nghiệp toàn quốc — Top 4 chung cuộc</p>
+                    </div>
+                    <div class="award-year">2016</div>
+                </div>
+
+                <div class="award-card">
+                    <div class="award-icon">🗣️</div>
+                    <div>
+                        <div class="award-title">Top 4 — Quyền Lực Ghế Nóng 2017</div>
+                        <p class="award-desc">Cuộc thi tranh luận chuyên nghiệp toàn quốc</p>
+                    </div>
+                    <div class="award-year">2017</div>
+                </div>
+
+                <div class="award-card">
+                    <div class="award-icon">💬</div>
+                    <div>
+                        <div class="award-title">Speaker — TEDx Youth @ IGC School</div>
+                        <p class="award-desc">Diễn giả tại TEDx Youth về giáo dục và sáng tạo nội dung</p>
+                    </div>
+                    <div class="award-year">2022</div>
+                </div>
+
+                <div class="award-card">
+                    <div class="award-icon">🎵</div>
+                    <div>
+                        <div class="award-title">Giải Nhất — No Smoking Contest</div>
+                        <p class="award-desc">Cuộc thi sáng tạo nội dung của Bộ Y tế & TikTok Vietnam</p>
+                    </div>
+                    <div class="award-year">2020</div>
+                </div>
+
+                <div class="award-card">
+                    <div class="award-icon">🎓</div>
+                    <div>
+                        <div class="award-title">Học bổng Chulalongkorn — GPA 3.94 / 4.0</div>
+                        <p class="award-desc">Học bổng chính phủ Hàn Quốc & Thái Lan — Tốt nghiệp xuất sắc bậc Thạc sĩ</p>
+                    </div>
+                    <div class="award-year">2014</div>
+                </div>
+
+                <div class="award-card">
+                    <div class="award-icon">🌏</div>
+                    <div>
+                        <div class="award-title">Đại diện Việt Nam — The Ship for South East Asian</div>
+                        <p class="award-desc">Một trong 28 thanh niên Việt Nam được chọn cho chương trình SSEAYP 2014 (Nhật Bản)</p>
+                    </div>
+                    <div class="award-year">2014</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- NHÃN HÀNG HỢP TÁC -->
+<section class="brands-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col">
+                <p style="font-size:0.75rem;letter-spacing:0.3em;color:#9b1316;text-transform:uppercase;margin-bottom:8px;" data-aos="fade-up">Đối tác thương mại</p>
+                <h2 style="font-family:'Phudu',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:#fff;margin-bottom:12px;" data-aos="fade-up" data-aos-delay="100">100+ Nhãn Hàng Hợp Tác</h2>
+                <p style="color:rgba(255,255,255,0.45);font-size:0.9rem;max-width:600px;" data-aos="fade-up" data-aos-delay="150">Những thương hiệu tin tưởng tôi để truyền tải thông điệp đến hàng triệu người — chứng minh tôi hiểu cách kết nối thương hiệu với khán giả.</p>
+            </div>
+        </div>
+        <!-- Row 1: scrolls left -->
+        <div class="swiper brand-logo-1 brand-logo-track mb-3" data-aos="fade-up">
+            <div class="swiper-wrapper">
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/samsung.com" alt="Samsung" onerror="this.parentNode.innerHTML='<span class=brand-fallback>Samsung</span>'"></div><div class="brand-logo-name">Samsung</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/pepsi.com" alt="Pepsi" onerror="this.parentNode.innerHTML='<span class=brand-fallback>Pepsi</span>'"></div><div class="brand-logo-name">Pepsi</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/kfc.com" alt="KFC" onerror="this.parentNode.innerHTML='<span class=brand-fallback>KFC</span>'"></div><div class="brand-logo-name">KFC</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/heineken.com" alt="Heineken" onerror="this.parentNode.innerHTML='<span class=brand-fallback>Heineken</span>'"></div><div class="brand-logo-name">Heineken</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/honda.com" alt="Honda" onerror="this.parentNode.innerHTML='<span class=brand-fallback>Honda</span>'"></div><div class="brand-logo-name">Honda</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/grab.com" alt="Grab" onerror="this.parentNode.innerHTML='<span class=brand-fallback>Grab</span>'"></div><div class="brand-logo-name">Grab</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/shopee.vn" alt="Shopee" onerror="this.parentNode.innerHTML='<span class=brand-fallback>Shopee</span>'"></div><div class="brand-logo-name">Shopee</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/lazada.vn" alt="Lazada" onerror="this.parentNode.innerHTML='<span class=brand-fallback>Lazada</span>'"></div><div class="brand-logo-name">Lazada</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/nestle.com" alt="Nestlé" onerror="this.parentNode.innerHTML='<span class=brand-fallback>Nestlé</span>'"></div><div class="brand-logo-name">Nestlé</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/jollibee.com" alt="Jollibee" onerror="this.parentNode.innerHTML='<span class=brand-fallback>Jollibee</span>'"></div><div class="brand-logo-name">Jollibee</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/oppo.com" alt="Oppo" onerror="this.parentNode.innerHTML='<span class=brand-fallback>Oppo</span>'"></div><div class="brand-logo-name">Oppo</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/tiktok.com" alt="TikTok Shop" onerror="this.parentNode.innerHTML='<span class=brand-fallback>TikTok Shop</span>'"></div><div class="brand-logo-name">TikTok Shop</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/budweiser.com" alt="Budweiser" onerror="this.parentNode.innerHTML='<span class=brand-fallback>Budweiser</span>'"></div><div class="brand-logo-name">Budweiser</div></div>
+            </div>
+        </div>
+        <!-- Row 2: scrolls right (reverse) -->
+        <div class="swiper brand-logo-2 brand-logo-track" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper">
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/vietcombank.com.vn" alt="Vietcombank" onerror="this.parentNode.innerHTML='<span class=brand-fallback>Vietcombank</span>'"></div><div class="brand-logo-name">Vietcombank</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/techcombank.com.vn" alt="Techcombank" onerror="this.parentNode.innerHTML='<span class=brand-fallback>Techcombank</span>'"></div><div class="brand-logo-name">Techcombank</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/strongbow.com" alt="Strongbow" onerror="this.parentNode.innerHTML='<span class=brand-fallback>Strongbow</span>'"></div><div class="brand-logo-name">Strongbow</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/cocoonvietnam.com" alt="Cocoon" onerror="this.parentNode.innerHTML='<span class=brand-fallback>Cocoon</span>'"></div><div class="brand-logo-name">Cocoon</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/comfort.com" alt="Comfort" onerror="this.parentNode.innerHTML='<span class=brand-fallback>Comfort</span>'"></div><div class="brand-logo-name">Comfort</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/7up.com" alt="7Up" onerror="this.parentNode.innerHTML='<span class=brand-fallback>7Up</span>'"></div><div class="brand-logo-name">7Up</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/shell.com" alt="Shell" onerror="this.parentNode.innerHTML='<span class=brand-fallback>Shell</span>'"></div><div class="brand-logo-name">Shell</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/fecredit.com.vn" alt="FE Credit" onerror="this.parentNode.innerHTML='<span class=brand-fallback>FE Credit</span>'"></div><div class="brand-logo-name">FE Credit</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/vietnamworks.com" alt="Vietnamworks" onerror="this.parentNode.innerHTML='<span class=brand-fallback>Vietnamworks</span>'"></div><div class="brand-logo-name">Vietnamworks</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/gong-cha.com" alt="Gong Cha" onerror="this.parentNode.innerHTML='<span class=brand-fallback>Gong Cha</span>'"></div><div class="brand-logo-name">Gong Cha</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/apaxenglish.com" alt="APAX English" onerror="this.parentNode.innerHTML='<span class=brand-fallback>APAX English</span>'"></div><div class="brand-logo-name">APAX English</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card"><img src="https://logo.clearbit.com/heineken.com" alt="Tiger Beer" onerror="this.parentNode.innerHTML='<span class=brand-fallback>Tiger Beer</span>'"></div><div class="brand-logo-name">Tiger Beer</div></div>
+                <div class="brand-logo-slide swiper-slide"><div class="brand-logo-card" style="background:rgba(155,19,22,0.12);border-color:rgba(155,19,22,0.25);"><span class="brand-fallback" style="color:rgba(155,19,22,0.8);font-size:1rem;">+76</span></div><div class="brand-logo-name">& nhiều hơn nữa</div></div>
+            </div>
+        </div>
+        <div style="background:rgba(155,19,22,0.08);border:1px solid rgba(155,19,22,0.2);border-radius:12px;padding:28px;margin-top:40px;" data-aos="fade-up">
+            <p style="color:rgba(255,255,255,0.7);margin:0;font-size:0.95rem;line-height:1.7;">
+                <strong style="color:#fff;">Điều này có nghĩa gì với VMAS?</strong> — Tôi đã làm việc với các loại thương hiệu khác nhau, hiểu ngôn ngữ của brand, biết cách đàm phán và deliver giá trị. Khi nghệ sĩ VMAS cần hợp tác nhãn hàng, tôi biết chính xác phải làm gì.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- HOẠT ĐỘNG HỌC THUẬT -->
+<section class="academic-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <p style="font-size:0.75rem;letter-spacing:0.3em;color:#9b1316;text-transform:uppercase;margin-bottom:8px;" data-aos="fade-up">Nền tảng học thuật</p>
+                <h2 style="font-family:'Phudu',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:#fff;margin-bottom:40px;" data-aos="fade-up" data-aos-delay="100">Hoạt động học thuật & Quốc tế</h2>
+                <div data-aos="fade-up">
+                    <div class="academic-item"><div class="academic-bullet"></div><div class="academic-text">Trình bày tham luận tại Surindra Rajabhat University, Thái Lan về "Asian Local Arts and Cultures" (2010)</div></div>
+                    <div class="academic-item"><div class="academic-bullet"></div><div class="academic-text">Trình bày tại Hội nghị Thammasat University, Bangkok về "ASEAN Dynamics in Localism and Globalization" (2014)</div></div>
+                    <div class="academic-item"><div class="academic-bullet"></div><div class="academic-text">Học bổng Giảng viên trao đổi — John Carroll University, Ohio, USA (2015)</div></div>
+                    <div class="academic-item"><div class="academic-bullet"></div><div class="academic-text">Học bổng Giảng viên trao đổi — Findlay University, Ohio, USA (2018)</div></div>
+                    <div class="academic-item"><div class="academic-bullet"></div><div class="academic-text">Đại diện tham gia "The Ship for South East Asian and Japanese Youth Program 2014" — 1 trong 28 thanh niên Việt Nam được chọn</div></div>
+                    <div class="academic-item"><div class="academic-bullet"></div><div class="academic-text">MC duy nhất người Việt được chọn dẫn chương trình thực tế "The ASEANER" phát sóng trên kênh truyền hình Thái Lan (2014)</div></div>
+                    <div class="academic-item"><div class="academic-bullet"></div><div class="academic-text">Trưởng đoàn sinh viên & giảng viên Quan hệ Quốc tế tham quan học thuật tại Cambodia, Thái Lan và các tổ chức quốc tế (2015, 2016, 2017)</div></div>
+                    <div class="academic-item"><div class="academic-bullet"></div><div class="academic-text">Tốt nghiệp xuất sắc ĐH KHXH&NV — Top 10 sinh viên xuất sắc toàn trường, học bổng liên tục 4 năm (2006–2010)</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA CUỐI TRANG -->
+<section class="cta-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8" data-aos="fade-up">
+                <h2 class="cta-title">
+                    Sẵn sàng cùng<br>
+                    <span>VMAS</span> viết chương tiếp theo
+                </h2>
+                <p class="cta-subtitle">9M+ followers. 6B+ views. 100+ nhãn hàng. 5+ dự án VMAS.<br>Đây là hành lý tôi mang đến.</p>
+                <div class="cta-buttons">
+                    <a href="ve-toi.html" class="cta-btn-primary">
+                        Xem hồ sơ đầy đủ
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 25 18" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.3368 0.763844V0H14.8091V0.763844C14.8091 3.66421 16.4166 6.45372 18.8361 8.10623H0V9.63392H18.8362C16.4166 11.2864 14.8091 14.0759 14.8091 16.9763V17.7401H16.3368V16.9763C16.3368 13.2214 19.6689 9.64694 23.6575 9.63396H24.4431V8.10623H23.65C19.6648 8.0888 16.3368 4.51646 16.3368 0.763844Z" fill="currentColor"/></svg>
+                    </a>
+                    <a href="index.html" class="cta-btn-secondary">Trang chủ</a>
+                </div>
+                <div class="contact-info">
+                    <a href="tel:0938013920">📞 0938 013 920</a>
+                    <a href="mailto:mctrantuandat@gmail.com">✉️ mctrantuandat@gmail.com</a>
+                    <a href="https://www.tiktok.com/@thaybeou40" target="_blank" rel="noopener">TikTok @thaybeou40</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-area pt-80 mt-80">
+    <div class="container">
+        <div class="footer-top row d-flex flex-column-reverse flex-lg-row py-5" data-aos="zoom-in-up">
+            <div class="col-lg-6 col-md-12 text-lg-start text-center mb-3">
+                <div class="footer-widget widget-about"><div class="details">
+                    <ul class="social-media mt-3">
+                        <li class="social-media--item"><a href="https://www.tiktok.com/@thaybeou40" target="_blank" rel="noopener" class="social-media--link"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none"><path d="M10.0452 5.27725V10.6445C10.0452 13.3004 7.81249 15.4534 5.0582 15.4534C2.30396 15.4534 0.0711975 13.3004 0.0711975 10.6445C0.0711975 7.98853 2.30396 5.83555 5.0582 5.83555C5.45433 5.83555 5.83963 5.88008 6.20905 5.96423V8.30422C5.86027 8.14442 5.47005 8.05504 5.0582 8.05504C3.57514 8.05504 2.37289 9.21436 2.37289 10.6445C2.37289 12.0745 3.57514 13.2339 5.0582 13.2339C6.54126 13.2339 7.74351 12.0745 7.74351 10.6445V0.656738H10.0452C10.0452 2.69972 11.7627 4.35589 13.8814 4.35589V6.57538C12.4298 6.57538 11.096 6.08952 10.0452 5.27725Z" fill="currentColor"/></svg></a></li>
+                        <li class="social-media--item"><a href="https://www.youtube.com/@thaybeou4011" target="_blank" rel="noopener" class="social-media--link"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></li>
+                        <li class="social-media--item"><a href="https://www.facebook.com/thaybeou40" target="_blank" rel="noopener" class="social-media--link"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="16" viewBox="0 0 8 16" fill="none"><path d="M5.33899 9.16479H7.21792L7.9695 6.20547H5.33899V4.72581C5.33899 3.96424 5.33899 3.24615 6.84214 3.24615H7.9695V0.760389C7.72471 0.728391 6.7993 0.656738 5.82217 0.656738C3.78203 0.656738 2.33269 1.88253 2.33269 4.13373V6.20547H0.0779705V9.16479H2.33269V15.4534H5.33899V9.16479Z" fill="currentColor"/></svg></a></li>
+                        <li class="social-media--item"><a href="https://www.instagram.com/thaybeou40" target="_blank" rel="noopener" class="social-media--link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M7.83874 0.656738C9.43179 0.658114 10.2183 0.673378 10.8888 0.700612C11.6761 0.736991 12.2131 0.861531 12.6848 1.04465C13.1724 1.2327 13.5843 1.48671 13.9955 1.89795C14.4061 2.30919 14.6602 2.72227 14.8489 3.20873C15.0313 3.67977 15.1929 5.00473 15.2366 7.29442V8.05477C15.2354 9.64783 15.2201 10.4344 15.1929 11.1048C15.1565 11.8922 15.0313 12.4292 14.8489 12.9008C14.6608 13.3886 14.4061 13.8004 13.9955 14.2116C13.5843 14.6223 12.6848 15.0649 10.8888 15.409C10.2183 15.4249 9.43179 15.4511 7.83874 15.4534C6.24568 15.4515 5.45912 15.4362 4.78867 15.409C4.00133 15.3726 3.46494 15.2474 2.99267 15.0649C1.68189 14.2116 0.828588 12.9008 0.484555 11.1048C0.442376 9.64783 0.440681 7.29442 0.457313 5.67519C0.520926 4.21679 0.828588 3.20873 1.68189 1.89795C2.50621 1.23331 3.46432 0.861531 4.78867 0.700612C5.45912 0.663367 6.24568 0.658433 7.83874 0.656738ZM7.83874 4.35551C5.79457 4.35551 4.13944 6.01244 4.13944 8.05477C4.13944 10.0989 5.79637 11.7541 7.83874 11.7541C9.88288 11.7541 11.538 10.0972 11.538 8.05477C11.538 6.01064 9.88103 4.35551 7.83874 4.35551ZM11.723 3.24572C11.213 3.24572 10.7982 3.65998 10.7982 4.16991C10.7982 4.67986 11.2124 5.09475 11.723 5.09475C12.2329 5.09475 12.6478 4.68051 12.6478 4.16991C12.6478 3.65998 12.2322 3.24509 11.723 3.24572Z" fill="currentColor"/></svg></a></li>
+                    </ul>
+                </div></div>
+            </div>
+            <div class="col-lg-6 col-md-12 text-lg-end text-center">
+                <div class="py-4">
+                    <div style="font-family:'Phudu',sans-serif;font-size:2rem;font-weight:900;color:#fff;letter-spacing:0.08em;">THẦY BEO U40<span style="color:#9b1316;">.</span></div>
+                    <div style="color:rgba(255,255,255,0.35);font-size:0.75rem;letter-spacing:0.2em;">TRẦN TUẤN ĐẠT</div>
+                </div>
+            </div>
+        </div>
+        <div class="row footer-bottom row-gap-3">
+            <div class="col-sm-6 text-lg-start text-center order-4 order-sm-0">
+                <p class="copyright mb-0">© Trần Tuấn Đạt 2026. Portfolio cá nhân được lấy ý tưởng từ website vmasgroup.com.</p>
+            </div>
+            <div class="col-sm-6 footer-widget text-lg-end text-center">
+                <ul class="footer-widget--list">
+                    <li class="footer-widget--item d-inline-block mb-0 me-4"><a href="tel:0938013920" class="footer-widget--link">0938 013 920</a></li>
+                    <li class="footer-widget--item d-inline-block"><a href="mailto:mctrantuandat@gmail.com" class="footer-widget--link">mctrantuandat@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="BackTo"><a href="#" class="fa fa-angle-up" aria-hidden="true"></a></div>
+
+</div>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery-migrate.min.js"></script>
+<script src="assets/js/aos.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/fontawesome.min.js"></script>
+<script src="assets/js/swiper-bundle.min.js"></script>
+<script src="assets/js/magnefic.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
