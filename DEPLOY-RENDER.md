@@ -2,6 +2,14 @@
 
 Code đã được push lên GitHub: https://github.com/TakiyaYoru/ThayBeoxVmas
 
+---
+
+## ⚠️ Quan trọng: Chọn **Static Site**, KHÔNG phải Web Service
+
+Portfolio là site tĩnh (HTML/CSS/JS), **không** dùng Node.js. Nếu tạo Web Service với `yarn`/`yarn start` sẽ bị lỗi.
+
+---
+
 ## Bước 1: Đăng nhập Render
 
 1. Truy cập [render.com](https://render.com)
@@ -10,7 +18,7 @@ Code đã được push lên GitHub: https://github.com/TakiyaYoru/ThayBeoxVmas
 
 ## Bước 2: Tạo Static Site mới
 
-1. Trên Dashboard, bấm **New +** → chọn **Static Site**
+1. Trên Dashboard, bấm **New +** → chọn **Static Site** (không chọn Web Service)
 2. Kết nối repository:
    - Nếu chưa kết nối: bấm **Connect account** để kết nối GitHub
    - Chọn repo **TakiyaYoru/ThayBeoxVmas**
@@ -22,7 +30,7 @@ Code đã được push lên GitHub: https://github.com/TakiyaYoru/ThayBeoxVmas
 |--------|---------|
 | **Name** | `thaybeou40-portfolio` (hoặc tên bạn muốn) |
 | **Branch** | `main` |
-| **Root Directory** | *(để trống)* — code đã ở root của repo |
+| **Root Directory** | *(để trống)* |
 | **Build Command** | *(để trống)* — site tĩnh không cần build |
 | **Publish Directory** | `.` hoặc để trống |
 
@@ -37,13 +45,37 @@ Code đã được push lên GitHub: https://github.com/TakiyaYoru/ThayBeoxVmas
 ## Bước 5: Truy cập website
 
 - URL mặc định: `https://thaybeou40-portfolio.onrender.com` (hoặc tên bạn đặt)
-- Có thể đổi tên trong **Settings** → **Custom Domain** nếu muốn dùng domain riêng
+
+---
+
+## Bước 6: Gắn domain thaybeou40.online
+
+Sau khi deploy xong:
+
+1. Vào **Dashboard** → chọn service **thaybeou40-portfolio**
+2. Vào **Settings** → kéo xuống **Custom Domains**
+3. Bấm **Add Custom Domain**
+4. Nhập `thaybeou40.online` và `www.thaybeou40.online`
+5. Render sẽ hiển thị hướng dẫn DNS — thường là:
+   - **Root domain (@):** CNAME `thaybeou40.online` → `thaybeou40-portfolio.onrender.com` (hoặc IP mà Render cung cấp)
+   - **www:** CNAME `www` → `thaybeou40-portfolio.onrender.com`
+
+### Cập nhật DNS tại nhà cung cấp domain
+
+Domain của bạn dùng nameserver: `ns1.dns-parking.com`, `ns2.dns-parking.com`
+
+**Xóa** các record cũ (A record `2.57.91.91`, CNAME www → thaybeou40.online) và **thêm** theo hướng dẫn Render:
+
+| Loại | Tên | Nội dung |
+|------|-----|----------|
+| CNAME | www | `thaybeou40-portfolio.onrender.com` *(hoặc giá trị Render hiển thị)* |
+| CNAME | @ | `thaybeou40-portfolio.onrender.com` *(nếu nhà cung cấp hỗ trợ CNAME cho root)* |
+
+> **Lưu ý:** Một số nhà cung cấp không cho CNAME ở root (@). Khi đó Render sẽ cung cấp **A record** (IP) để bạn trỏ @ đến IP đó. Làm đúng theo hướng dẫn trong màn hình Custom Domain của Render.
 
 ---
 
 ## Cập nhật website sau này
-
-Mỗi khi bạn push code mới lên GitHub:
 
 ```bash
 cd "/Volumes/TakiyaDrive/WORK/03_ORGS/THẦY BEO U40/VMAS/tbd-portfolio"
@@ -52,11 +84,11 @@ git commit -m "Mô tả thay đổi"
 git push
 ```
 
-Render sẽ tự động deploy lại (auto-deploy khi push lên branch `main`).
+Render sẽ tự động deploy lại khi push lên branch `main`.
 
 ---
 
 ## Lưu ý
 
 - **Free tier:** Site có thể "sleep" sau ~15 phút không có truy cập; lần truy cập đầu tiên sau đó có thể chậm 30–60 giây
-- **Custom domain:** Vào Settings → Custom Domain để thêm domain riêng (miễn phí)
+- **DNS propagation:** Sau khi sửa DNS, có thể mất 5 phút – 48 giờ để cập nhật toàn cầu
