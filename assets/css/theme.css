@@ -1,6 +1,6 @@
 /* VMAS Theme - Local Version */
 html {
-    font-size: 62.5%;
+    font-size: 75%;
     color-scheme: dark;
 }
 
@@ -991,4 +991,33 @@ a:focus {
     display: block;
     transition: all 0.3s ease;
     margin-bottom: 10px;
+}
+
+/* Readability boost: tăng chữ nhỏ để dễ nhìn hơn */
+.copyright,
+.footer-widget--link,
+.footer-widget--item,
+.social-media--link,
+.stat-label,
+.platform-chip-name,
+.platform-main-label,
+.platform-sub-stat-label,
+.total-label,
+.total-stat-label,
+.strategy-desc,
+.impact-content-desc,
+.award-desc,
+.brand-logo-name,
+.academic-text,
+.declaration-sub,
+.vmas-label,
+.page-hero-label,
+.hero-eyebrow,
+.hero-alias,
+.nav-card-desc,
+.framework-sub,
+.funnel-desc,
+.edu-badge {
+    font-size: max(1.2rem, 12px) !important;
+    line-height: 1.65 !important;
 }

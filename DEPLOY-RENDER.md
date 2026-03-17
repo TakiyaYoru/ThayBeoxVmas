@@ -32,9 +32,9 @@ Portfolio là site tĩnh (HTML/CSS/JS), **không** dùng Node.js. Nếu tạo We
 | **Branch** | `main` |
 | **Root Directory** | *(để trống)* |
 | **Build Command** | *(để trống)* — site tĩnh không cần build |
-| **Publish Directory** | `.` hoặc để trống |
+| **Publish Directory** | `.` *(dấu chấm — bắt buộc)* |
 
-> **Lưu ý:** Vì repo root chính là thư mục portfolio (index.html ở root), không cần chỉnh Root Directory hay Publish Directory.
+> ⚠️ **Quan trọng:** Publish Directory phải là `.` (dấu chấm), **KHÔNG** phải `main`. Nếu để `main` hoặc trống sai cách sẽ báo lỗi "Publish directory main does not exist!".
 
 ## Bước 4: Deploy
 
